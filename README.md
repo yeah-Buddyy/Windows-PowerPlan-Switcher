@@ -27,8 +27,7 @@ This powerplan is set if CPU load and GPU load is higher than `$CPUUsageLimit` a
 ### $IdlePowerPlanID
 This powerplan is set, if none of the above apply.
 
-## Manually fix to "gaming-plan"
-edit keepplan.txt
+### $KeepGamingPowerPlan
 * `true`  
 Will keep the gaming-plan until you run the script again with `false`
 * `false`  
