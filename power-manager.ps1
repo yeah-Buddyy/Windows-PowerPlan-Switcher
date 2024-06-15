@@ -9,6 +9,7 @@
 $GPUUsageLimit = 25
 $CPUUsageLimit = 25
 $UseIdleLimit = $false
+$KeepGamingPowerPlan = $true
 $UserIdleLimit = 300.0 # 5 minutes
 $CheckEverySeconds = 20
 $GamingPowerPlanID = "8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c"
@@ -64,6 +65,7 @@ Add-Type @'
 
 $DoesNvidiaSMIExists = [System.IO.Directory]::Exists("$env\Windows\System32\nvidia-smi.exe")
 $SMICommand = "& '" + "$env\Windows\System32" + "\nvidia-smi.exe`' --query-gpu=utilization.gpu --format=csv,noheader,nounits"
+$process_list = Get-Content -Path "$PSScriptRoot\gamingprocess.txt"
 
 function change-powerplan {
     Param ($PowerPlanID)
@@ -91,14 +93,12 @@ while ($true){
     cls
 
     # Keep Gaming Powerplan according to keepplan.txt
-    $KeepGamingPowerPlan = gc "$PSScriptRoot\keepplan.txt"
-    if ($KeepGamingPowerPlan -eq 'True') {
+    if ($KeepGamingPowerPlan) {
         Write-Host "Keep Powerplan" -ForegroundColor Yellow
         Write-Host "Set Powerplan to Gaming ID $GamingPowerPlanID" -ForegroundColor Green
         change-powerplan $GamingPowerPlanID
         Continue
     }
-    $process_list = gc "$PSScriptRoot\gamingprocess.txt"
     foreach ($this_process in $process_list) {
         if($this_process -like '*.exe') {
             $this_process = $this_process.replace('.exe','')
