@@ -1,0 +1,4 @@
+cs2.exe
+VirtualBox.exe
+robocopy.exe
+Veeam.EndPoint.Manager.exe
