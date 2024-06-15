@@ -9,7 +9,7 @@
 $GPUUsageLimit = 25
 $CPUUsageLimit = 25
 $UseIdleLimit = $false
-$KeepGamingPowerPlan = $true
+$KeepGamingPowerPlan = $false
 $UserIdleLimit = 300.0 # 5 minutes
 $CheckEverySeconds = 20
 $GamingPowerPlanID = "8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c"
