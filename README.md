@@ -22,7 +22,7 @@ Float, seconds. Amount of time the user should be idling to set powersaving plan
 
 ### $GamingPowerPlanID
 Use `powercfg /L` to get the IDs of the power plans.  
-This powerplan is set if CPU load and GPU load is higher than `$CPUUsageLimit` and `$GPUUsageLimit`, mouse and keyboard inputs are not older than `$UserIdleLimit`, at least one process from `gameprocess.txt` is running or "True" is written in `keepplan.txt` (read below).
+This powerplan is set if CPU load and GPU load is higher than `$CPUUsageLimit` and `$GPUUsageLimit`, mouse and keyboard inputs are not older than `$UserIdleLimit`, at least one process from `gameprocess.txt` is running or "True" is written in `$KeepGamingPowerPlan` (read below).
 
 ### $IdlePowerPlanID
 This powerplan is set, if none of the above apply.
